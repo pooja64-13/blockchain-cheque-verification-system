@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        BCVS
+    </div>
+
+    <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/register-page">Register</a></li>
+    <li><a href="/verify-page">Verify</a></li>
+    <li><a href="/architecture">Architecture</a></li>
+    <li><a href="/logs">Logs</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+</ul>
+
+</nav>
+
+<div class="container">
+
+    <h1>Verification Dashboard</h1>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h2>Total Verifications</h2>
+            <p>{{ total }}</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Valid Cheques</h2>
+            <p>{{ valid }}</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Tampered Cheques</h2>
+            <p>{{ tampered }}</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

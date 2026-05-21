@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Cheque</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        BCVS
+    </div>
+
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/register-page">Register</a></li>
+    <li><a href="/verify-page">Verify</a></li>
+    <li><a href="/architecture">Architecture</a></li>
+    <li><a href="/logs">Logs</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+</ul>
+
+</nav>
+
+<div class="container">
+
+    <h1>Cheque Verification</h1>
+
+    <form action="/verify" method="POST" enctype="multipart/form-data">
+
+        <label for="file-upload" class="custom-file-upload">
+    📄 Upload Cheque PDF
+</label>
+
+<input
+    id="file-upload"
+    type="file"
+    name="file"
+    required
+    onchange="showFileName()"
+>
+
+<p id="file-name">No file selected</p>
+
+<br>
+
+<button type="submit">Verify Cheque</button>
+
+    </form>
+
+</div>
+<script>
+
+function showFileName() {
+
+    const input = document.getElementById("file-upload");
+
+    const fileName = input.files[0]?.name || "No file selected";
+
+    document.getElementById("file-name").innerText = fileName;
+}
+
+</script>
+</body>
+</html>

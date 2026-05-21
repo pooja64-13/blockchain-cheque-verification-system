@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Cheque</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        BCVS
+    </div>
+
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/register-page">Register</a></li>
+    <li><a href="/verify-page">Verify</a></li>
+    <li><a href="/architecture">Architecture</a></li>
+    <li><a href="/logs">Logs</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+</ul>
+</nav>
+
+<div class="container">
+
+    <h1>Register Original Cheque</h1>
+
+    <form action="/register-cheque" method="POST" enctype="multipart/form-data">
+
+
+        <label for="register-file" class="custom-file-upload">
+            📄 Upload Original Cheque
+        </label>
+
+        <input
+    id="register-file"
+    type="file"
+    name="file"
+    required
+    onchange="showRegisterFileName()"
+>
+<p id="register-file-name">No file selected</p>
+
+        <br><br>
+
+        <button type="submit">Register Cheque</button>
+
+    </form>
+
+</div>
+<script>
+
+function showRegisterFileName() {
+
+    const input = document.getElementById("register-file");
+
+    const fileName = input.files[0]?.name || "No file selected";
+
+    document.getElementById("register-file-name").innerText = fileName;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Verification Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="result-container">
+
+        {% if "VALID" in result %}
+
+        <div class="result-card valid-card">
+
+            <h1>✅ CHEQUE IS VALID</h1>
+
+        {% else %}
+
+        <div class="result-card tampered-card">
+
+            <h1>❌ CHEQUE HAS BEEN TAMPERED</h1>
+
+        {% endif %}
+
+            <div class="result-section">
+
+                <h3>Cheque Number</h3>
+
+                <p>{{ cheque_number }}</p>
+
+            </div>
+
+            <div class="result-section">
+
+                <h3>Generated Hash</h3>
+
+                <p class="hash-text">
+                    {{ hash_value }}
+                </p>
+
+            </div>
+
+            <div class="result-section">
+
+                <h3>Blockchain Transaction Hash</h3>
+
+                <p class="hash-text blockchain-text">
+                    {{ tx_hash }}
+                </p>
+
+            </div>
+
+            <a href="/verify-page">
+                <button class="result-button">
+                    Verify Another Cheque
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

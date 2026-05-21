@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blockchain Logs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Blockchain Verification Logs</h1>
+
+    <table>
+
+    <tr>
+        <th>File Name</th>
+        <th>Cheque Number</th>
+        <th>Status</th>
+        <th>Blockchain TX</th>
+        <th>Time</th>
+    </tr>
+
+    {% for log in logs %}
+
+    <tr>
+        <td>{{ log.file }}</td>
+
+        <td>{{ log.cheque_number }}</td>
+
+        <td>{{ log.status }}</td>
+
+        <td style="max-width: 250px; word-wrap: break-word; color: blue;">
+            {{ log.tx_hash }}
+        </td>
+
+        <td>{{ log.time }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+    <br>
+
+    <a href="/">
+        <button>Go Home</button>
+    </a>
+
+</div>
+
+</body>
+</html>
